@@ -1,5 +1,5 @@
 import React from "react";
-const Form = ({inputText, setInputText, todos, setTodos}) => {
+const Form = ({inputText, setInputText, todos, setTodos, setStatus}) => {
 
    //const time = () => {
    //     const current = new Date();
@@ -21,6 +21,10 @@ const Form = ({inputText, setInputText, todos, setTodos}) => {
         ]);
         setInputText("");
     };
+    const statusHandler = (ev) => {
+        setStatus(ev.target.value);
+    };
+
 
     return(
         <form>
@@ -29,13 +33,13 @@ const Form = ({inputText, setInputText, todos, setTodos}) => {
         <i className="fas fa-plus-square"></i>
         </button>
         <div className="select">
-            <select name="todos" className="filter">
+            <select onChange={statusHandler} name="todos" className="filter">
                 <option value="all">All</option>
                 <option value="Completed">Completed</option>
                 <option value="Uncompleted">Uncompleted</option>
             </select>
         </div>
-        <h1>Hey </h1>
+        <h1>what should I get done today</h1>
         </form>
         
         
