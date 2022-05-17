@@ -12,33 +12,18 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [status, setStatus] = useState("all");
   const [filteredTodos, setFilteredTodos] = useState([]);
-//run on start 
-  useEffect(() => {
-    getLocal();
-  }, []);
 
+//run on start
+useEffect(() => {
+  getLocalTodos();
+}, []);
 //useEffect
-
-  useEffect(() => {
+ useEffect(() => {
     filterHandler();
-    saveLocal();
+    saveLocalTodos();
   }, [todos, status]);
 
 //functions
-  const saveLocal = () => {
-      localStorage.setItem("todos", JSON.stringify(todos));
-  }
-
-  const getLocal = () => {
-    if (localStorage.getItem("todos") === null) {
-      localStorage.setItem("todos", JSON.stringify([]));
-    } else {
-      let todoLocal = JSON.parse(localStorage.getItem("todos"));
-      setTodos(todoLocal); 
-    }
-  }
-
-
   const filterHandler = () => {
     switch (status) {
 
@@ -55,10 +40,24 @@ function App() {
         break;
 
   }
-}
+};
+
+  const saveLocalTodos = () => {
+      localStorage.setItem('todos', JSON.stringify(todos));
+  };
+
+  const getLocalTodos = () => {
+    if(localStorage.getItem('todos') === null ) {
+      localStorage.setItem('todos', JSON.stringify([]));
+    } else {
+      let todoLocal = JSON.parse(localStorage.getItem('todos'));
+      setTodos(todoLocal);
+    }
+  };
+
   return (
   
-    <div className="App">
+    <div className="app">
         <header>
           <h1>To do list</h1>
         </header>
