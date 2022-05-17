@@ -1,12 +1,8 @@
 import React from "react";
 const Form = ({inputText, setInputText, todos, setTodos, setStatus}) => {
 
-   //const time = () => {
-   //     const current = new Date();
-   //    const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
-   //};
     const inputTextHandler = (ev) => {
-        console.log(ev.target.value);
+       
         setInputText(ev.target.value);
         
     };
@@ -22,7 +18,7 @@ const Form = ({inputText, setInputText, todos, setTodos, setStatus}) => {
         setInputText("");
     };
     const statusHandler = (ev) => {
-        setStatus(ev.target.value);
+       setStatus(ev.target.value);
     };
 
 
@@ -35,8 +31,8 @@ const Form = ({inputText, setInputText, todos, setTodos, setStatus}) => {
         <div className="select">
             <select onChange={statusHandler} name="todos" className="filter">
                 <option value="all">All</option>
-                <option value="Completed">Completed</option>
-                <option value="Uncompleted">Uncompleted</option>
+                <option value="completed">Completed</option>
+                <option value="uncompleted">Uncompleted</option>
             </select>
         </div>
         <h1>what should I get done today</h1>
